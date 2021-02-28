@@ -15,18 +15,23 @@
  */
 package com.example.androiddevchallenge
 
-import android.os.Bundle
-import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import com.example.androiddevchallenge.ui.theme.MyTheme
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MyTheme {
-                JetPupApp()
-            }
-        }
+object Destinations {
+    const val PuppyList = "puppyList"
+    const val PuppyDetail = "puppyDetail"
+
+    object PuppyDetailArgs {
+        const val PuppyId = "puppyId"
+    }
+}
+
+class Actions(navController: NavHostController) {
+    val openPuppyDetail: (Int) -> Unit = { puppyId ->
+        navController.navigate("${Destinations.PuppyDetail}/$puppyId")
+    }
+    val navigateBack: () -> Unit = {
+        navController.popBackStack()
     }
 }

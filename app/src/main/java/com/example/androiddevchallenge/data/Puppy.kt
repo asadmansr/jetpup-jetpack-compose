@@ -13,20 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge
+package com.example.androiddevchallenge.data
 
-import android.os.Bundle
-import androidx.activity.compose.setContent
-import androidx.appcompat.app.AppCompatActivity
-import com.example.androiddevchallenge.ui.theme.MyTheme
-
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MyTheme {
-                JetPupApp()
-            }
-        }
-    }
-}
+data class Puppy(
+    val id: Int,
+    val name: String,
+    val image: Int,
+    val hobby: String,
+    val breed: String,
+    val description: String,
+    val favouriteAndroid: String
+)
